@@ -1,0 +1,312 @@
+
+*** Running vivado
+    with args -log jsk_top_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source jsk_top_wrapper.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source jsk_top_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'k:/Z01_ArchiveProj/00_Project/03_DESD/DOC/IP_CORE'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/data/ip'.
+Command: synth_design -top jsk_top_wrapper -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 29140
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1113.770 ; gain = 3.262
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'jsk_top_wrapper' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:27]
+INFO: [Synth 8-3491] module 'IOBUF' declared at 'K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/scripts/rt/data/unisim_comp.v:36242' bound to instance 'SPI_M_io0_iobuf' of component 'IOBUF' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:69]
+INFO: [Synth 8-6157] synthesizing module 'IOBUF' [K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/scripts/rt/data/unisim_comp.v:36242]
+	Parameter DRIVE bound to: 12 - type: integer 
+	Parameter IBUF_LOW_PWR bound to: TRUE - type: string 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+	Parameter SLEW bound to: SLOW - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (1#1) [K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/scripts/rt/data/unisim_comp.v:36242]
+INFO: [Synth 8-3491] module 'IOBUF' declared at 'K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/scripts/rt/data/unisim_comp.v:36242' bound to instance 'SPI_M_io1_iobuf' of component 'IOBUF' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:76]
+INFO: [Synth 8-3491] module 'IOBUF' declared at 'K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/scripts/rt/data/unisim_comp.v:36242' bound to instance 'SPI_M_sck_iobuf' of component 'IOBUF' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:83]
+INFO: [Synth 8-3491] module 'IOBUF' declared at 'K:/A00_LINUX/VIVADO/xlinx202002/Vivado/2020.2/scripts/rt/data/unisim_comp.v:36242' bound to instance 'SPI_M_ss_iobuf' of component 'IOBUF' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:90]
+INFO: [Synth 8-3491] module 'jsk_top' declared at 'k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:14' bound to instance 'jsk_top_i' of component 'jsk_top' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'jsk_top' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:39]
+INFO: [Synth 8-3491] module 'jsk_top_AXI4Stream_UART_0_0' declared at 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_AXI4Stream_UART_0_0_stub.vhdl:5' bound to instance 'AXI4Stream_UART_0' of component 'jsk_top_AXI4Stream_UART_0_0' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:218]
+INFO: [Synth 8-638] synthesizing module 'jsk_top_AXI4Stream_UART_0_0' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_AXI4Stream_UART_0_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'jsk_top_axi4stream_spi_master_0_0' declared at 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_axi4stream_spi_master_0_0_stub.vhdl:5' bound to instance 'axi4stream_spi_master_0' of component 'jsk_top_axi4stream_spi_master_0_0' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:235]
+INFO: [Synth 8-638] synthesizing module 'jsk_top_axi4stream_spi_master_0_0' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_axi4stream_spi_master_0_0_stub.vhdl:30]
+INFO: [Synth 8-3491] module 'jsk_top_clk_wiz_0_0' declared at 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'jsk_top_clk_wiz_0_0' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:257]
+INFO: [Synth 8-638] synthesizing module 'jsk_top_clk_wiz_0_0' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_clk_wiz_0_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'jsk_top_digilent_jstk2_0_0' declared at 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_digilent_jstk2_0_0_stub.vhdl:5' bound to instance 'digilent_jstk2_0' of component 'jsk_top_digilent_jstk2_0_0' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:264]
+INFO: [Synth 8-638] synthesizing module 'jsk_top_digilent_jstk2_0_0' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_digilent_jstk2_0_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'jsk_top_jstk_uart_bridge_0_0' declared at 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_jstk_uart_bridge_0_0_stub.vhdl:5' bound to instance 'jstk_uart_bridge_0' of component 'jsk_top_jstk_uart_bridge_0_0' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:281]
+INFO: [Synth 8-638] synthesizing module 'jsk_top_jstk_uart_bridge_0_0' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_jstk_uart_bridge_0_0_stub.vhdl:26]
+INFO: [Synth 8-3491] module 'jsk_top_proc_sys_reset_0_0' declared at 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'jsk_top_proc_sys_reset_0_0' [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:299]
+INFO: [Synth 8-638] synthesizing module 'jsk_top_proc_sys_reset_0_0' [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/.Xil/Vivado-6976-MercaPC/realtime/jsk_top_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-256] done synthesizing module 'jsk_top' (2#1) [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/synth/jsk_top.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'jsk_top_wrapper' (3#1) [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd:27]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1171.152 ; gain = 60.645
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1171.152 ; gain = 60.645
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1171.152 ; gain = 60.645
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1171.152 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_axi4stream_spi_master_0_0/jsk_top_axi4stream_spi_master_0_0/jsk_top_axi4stream_spi_master_0_0_in_context.xdc] for cell 'jsk_top_i/axi4stream_spi_master_0'
+Finished Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_axi4stream_spi_master_0_0/jsk_top_axi4stream_spi_master_0_0/jsk_top_axi4stream_spi_master_0_0_in_context.xdc] for cell 'jsk_top_i/axi4stream_spi_master_0'
+Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_AXI4Stream_UART_0_0/jsk_top_AXI4Stream_UART_0_0/jsk_top_AXI4Stream_UART_0_0_in_context.xdc] for cell 'jsk_top_i/AXI4Stream_UART_0'
+Finished Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_AXI4Stream_UART_0_0/jsk_top_AXI4Stream_UART_0_0/jsk_top_AXI4Stream_UART_0_0_in_context.xdc] for cell 'jsk_top_i/AXI4Stream_UART_0'
+Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0_in_context.xdc] for cell 'jsk_top_i/clk_wiz_0'
+Finished Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0_in_context.xdc] for cell 'jsk_top_i/clk_wiz_0'
+Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_proc_sys_reset_0_0/jsk_top_proc_sys_reset_0_0/jsk_top_proc_sys_reset_0_0_in_context.xdc] for cell 'jsk_top_i/proc_sys_reset_0'
+Finished Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_proc_sys_reset_0_0/jsk_top_proc_sys_reset_0_0/jsk_top_proc_sys_reset_0_0_in_context.xdc] for cell 'jsk_top_i/proc_sys_reset_0'
+Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_jstk_uart_bridge_0_0/jsk_top_jstk_uart_bridge_0_0/jsk_top_jstk_uart_bridge_0_0_in_context.xdc] for cell 'jsk_top_i/jstk_uart_bridge_0'
+Finished Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_jstk_uart_bridge_0_0/jsk_top_jstk_uart_bridge_0_0/jsk_top_jstk_uart_bridge_0_0_in_context.xdc] for cell 'jsk_top_i/jstk_uart_bridge_0'
+Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_digilent_jstk2_0_0/jsk_top_digilent_jstk2_0_0/jsk_top_digilent_jstk2_0_0_in_context.xdc] for cell 'jsk_top_i/digilent_jstk2_0'
+Finished Parsing XDC File [k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_digilent_jstk2_0_0/jsk_top_digilent_jstk2_0_0/jsk_top_digilent_jstk2_0_0_in_context.xdc] for cell 'jsk_top_i/digilent_jstk2_0'
+Parsing XDC File [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[0]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:67]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[1]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:68]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[2]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:69]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[3]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:70]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[4]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:71]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[5]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:72]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[6]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:73]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tdata[7]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:74]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[2]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:75]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[5]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:76]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tvalid'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:77]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/m_axis_tvalid'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:78]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[0]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:80]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[1]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:81]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[3]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:82]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[4]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:83]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[6]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:84]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[7]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:85]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tready'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:95]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[0]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:97]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[1]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:98]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[2]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:99]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[3]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:100]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[4]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:101]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[5]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:102]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[6]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:103]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tdata[7]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:104]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/s_axis_tvalid'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:105]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/dbg_rcv_byte_cnt[0]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:106]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/dbg_rcv_byte_cnt[1]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:107]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/dbg_rcv_byte_cnt[2]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:108]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/dbg_rcv_byte_cnt[3]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:109]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[0]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:111]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[1]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:112]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[2]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:113]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[3]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:114]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[4]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:115]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[5]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:116]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[6]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:117]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tdata[7]'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:118]
+WARNING: [Vivado 12-507] No nets matched 'jsk_top_i/digilent_jstk2_0/m_axis_tvalid'. [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc:119]
+Finished Parsing XDC File [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/jsk_top_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/jsk_top_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/jsk_top_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1233.852 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1233.852 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1233.852 ; gain = 123.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1233.852 ; gain = 123.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for sys_clock. (constraint file  k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clock. (constraint file  k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0/jsk_top_clk_wiz_0_0_in_context.xdc, line 4).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i/axi4stream_spi_master_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i/AXI4Stream_UART_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i/clk_wiz_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i/proc_sys_reset_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i/jstk_uart_bridge_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for jsk_top_i/digilent_jstk2_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1233.852 ; gain = 123.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1233.852 ; gain = 123.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1233.852 ; gain = 123.344
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1238.023 ; gain = 127.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1238.023 ; gain = 127.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1257.141 ; gain = 146.633
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+----------------------------------+----------+
+|      |BlackBox name                     |Instances |
++------+----------------------------------+----------+
+|1     |jsk_top_AXI4Stream_UART_0_0       |         1|
+|2     |jsk_top_axi4stream_spi_master_0_0 |         1|
+|3     |jsk_top_clk_wiz_0_0               |         1|
+|4     |jsk_top_digilent_jstk2_0_0        |         1|
+|5     |jsk_top_jstk_uart_bridge_0_0      |         1|
+|6     |jsk_top_proc_sys_reset_0_0        |         1|
++------+----------------------------------+----------+
+
+Report Cell Usage: 
++------+---------------------------------------+------+
+|      |Cell                                   |Count |
++------+---------------------------------------+------+
+|1     |jsk_top_AXI4Stream_UART_0_0_bbox       |     1|
+|2     |jsk_top_axi4stream_spi_master_0_0_bbox |     1|
+|3     |jsk_top_clk_wiz_0_0_bbox               |     1|
+|4     |jsk_top_digilent_jstk2_0_0_bbox        |     1|
+|5     |jsk_top_jstk_uart_bridge_0_0_bbox      |     1|
+|6     |jsk_top_proc_sys_reset_0_0_bbox        |     1|
+|7     |IBUF                                   |     2|
+|8     |IOBUF                                  |     4|
+|9     |OBUF                                   |     1|
++------+---------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:05 ; elapsed = 00:00:13 . Memory (MB): peak = 1262.934 ; gain = 89.727
+Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1262.934 ; gain = 152.426
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1262.934 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1282.234 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+43 Infos, 42 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1282.234 ; gain = 171.727
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit, general.maxThreads
+INFO: [Common 17-1381] The checkpoint 'K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1/jsk_top_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file jsk_top_wrapper_utilization_synth.rpt -pb jsk_top_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Apr  7 01:07:09 2024...

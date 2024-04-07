@@ -1,0 +1,75 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Apr  6 07:38:47 2024
+# Process ID: 26072
+# Current directory: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent34000 K:\Z01_ArchiveProj\00_Project\03_DESD\07_LAB2\01_proj\jstkLab2\jstkLab2.xpr
+# Log file: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/vivado.log
+# Journal file: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.xpr
+update_compile_order -fileset sources_1
+open_bd_design {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd}
+add_files -norecurse K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/02_src/digilent_jstk2.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference digilent_jstk2 digilent_jstk2_0
+add_files -norecurse K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/02_src/jstk_uart_bridge.vhd
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference jstk_uart_bridge jstk_uart_bridge_0
+set_property -dict [list CONFIG.c_sclkfreq {66666}] [get_bd_cells axi4stream_spi_master_0]
+set_property location {1 241 236} [get_bd_cells proc_sys_reset_0]
+connect_bd_net [get_bd_ports reset] [get_bd_pins proc_sys_reset_0/ext_reset_in]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins jstk_uart_bridge_0/aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins digilent_jstk2_0/aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins axi4stream_spi_master_0/aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aresetn]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aresetn]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/slowest_sync_clk]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked]
+regenerate_bd_layout -routing
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins digilent_jstk2_0/aclk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins jstk_uart_bridge_0/aclk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins AXI4Stream_UART_0/clk_uart]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins AXI4Stream_UART_0/m00_axis_rx_aclk]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins AXI4Stream_UART_0/s00_axis_tx_aclk]
+connect_bd_intf_net [get_bd_intf_pins digilent_jstk2_0/m_axis] [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX]
+set_property location {2 540 490} [get_bd_cells digilent_jstk2_0]
+set_property location {2 523 89} [get_bd_cells jstk_uart_bridge_0]
+set_property location {2 496 326} [get_bd_cells digilent_jstk2_0]
+delete_bd_objs [get_bd_intf_nets digilent_jstk2_0_m_axis]
+regenerate_bd_layout -routing
+connect_bd_intf_net [get_bd_intf_pins jstk_uart_bridge_0/m_axis] [get_bd_intf_pins AXI4Stream_UART_0/S00_AXIS_TX]
+connect_bd_intf_net [get_bd_intf_pins AXI4Stream_UART_0/M00_AXIS_RX] [get_bd_intf_pins jstk_uart_bridge_0/s_axis]
+connect_bd_intf_net [get_bd_intf_pins digilent_jstk2_0/m_axis] [get_bd_intf_pins axi4stream_spi_master_0/S_AXIS]
+connect_bd_intf_net [get_bd_intf_pins axi4stream_spi_master_0/M_AXIS] [get_bd_intf_pins digilent_jstk2_0/s_axis]
+connect_bd_net [get_bd_pins proc_sys_reset_0/peripheral_reset] [get_bd_pins AXI4Stream_UART_0/rst]
+regenerate_bd_layout -routing
+set_property location {2 512 299} [get_bd_cells jstk_uart_bridge_0]
+regenerate_bd_layout -routing
+set_property location {1 196 286} [get_bd_cells proc_sys_reset_0]
+set_property location {0.5 -42 302} [get_bd_cells clk_wiz_0]
+regenerate_bd_layout -routing
+set_property location {2 357 366} [get_bd_cells proc_sys_reset_0]
+set_property location {1 83 397} [get_bd_cells clk_wiz_0]
+regenerate_bd_layout -routing
+set_property location {3 695 -22} [get_bd_cells jstk_uart_bridge_0]
+set_property location {3 671 187} [get_bd_cells digilent_jstk2_0]
+set_property location {4 1020 53} [get_bd_cells AXI4Stream_UART_0]
+set_property location {4 995 251} [get_bd_cells axi4stream_spi_master_0]
+regenerate_bd_layout -routing
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/led_r] [get_bd_pins digilent_jstk2_0/led_r]
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/led_g] [get_bd_pins digilent_jstk2_0/led_g]
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/led_b] [get_bd_pins digilent_jstk2_0/led_b]
+connect_bd_net [get_bd_pins digilent_jstk2_0/jstk_x] [get_bd_pins jstk_uart_bridge_0/jstk_x]
+connect_bd_net [get_bd_pins digilent_jstk2_0/jstk_y] [get_bd_pins jstk_uart_bridge_0/jstk_y]
+connect_bd_net [get_bd_pins digilent_jstk2_0/btn_jstk] [get_bd_pins jstk_uart_bridge_0/btn_jstk]
+connect_bd_net [get_bd_pins digilent_jstk2_0/btn_trigger] [get_bd_pins jstk_uart_bridge_0/btn_trigger]
+regenerate_bd_layout -routing
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins axi4stream_spi_master_0/aclk]
+regenerate_bd_layout -routing
+save_bd_design

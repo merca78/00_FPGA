@@ -1,0 +1,363 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Apr  6 18:35:29 2024
+# Process ID: 31872
+# Current directory: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent49800 K:\Z01_ArchiveProj\00_Project\03_DESD\07_LAB2\01_proj\jstkLab2\jstkLab2.xpr
+# Log file: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/vivado.log
+# Journal file: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.xpr
+update_compile_order -fileset sources_1
+open_bd_design {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd}
+launch_runs synth_1 -jobs 10
+wait_on_run synth_1
+set_param general.maxThreads 30
+open_run synth_1 -name synth_1
+open_bd_design {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd}
+startgroup
+create_bd_intf_port -mode Master -vlnv xilinx.com:interface:spi_rtl:1.0 SPI_M
+connect_bd_intf_net [get_bd_intf_pins axi4stream_spi_master_0/SPI_M] [get_bd_intf_ports SPI_M]
+endgroup
+make_wrapper -files [get_files K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd] -top
+add_files -norecurse k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/hdl/jsk_top_wrapper.vhd
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top jsk_top_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+wait_on_run synth_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd]
+refresh_design
+open_bd_design {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd}
+set_property IOSTANDARD LVCMOS33 [get_ports [list SPI_M_io0_io]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list SPI_M_io1_io]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list SPI_M_sck_io]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list SPI_M_ss_io]]
+set_property package_pin "" [get_ports [list  SPI_M_io0_io]]
+place_ports SPI_M_sck_io G2
+place_ports SPI_M_ss_io J1
+place_ports SPI_M_io0_io L2
+place_ports SPI_M_io1_io J2
+file mkdir K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new
+close [ open K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc w ]
+add_files -fileset constrs_1 K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc
+set_property target_constrs_file K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc [current_fileset -constrset]
+save_constraints -force
+reset_run synth_1
+launch_runs impl_1 -jobs 10
+wait_on_run impl_1
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+open_run synth_1 -name synth_1
+startgroup
+set_property package_pin "" [get_ports [list  SPI_M_io1_io]]
+place_ports SPI_M_io0_io J2
+endgroup
+place_ports SPI_M_io1_io L2
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0
+endgroup
+connect_bd_net [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins ila_0/clk]
+startgroup
+set_property -dict [list CONFIG.C_PROBE2_WIDTH {8} CONFIG.C_PROBE1_WIDTH {8} CONFIG.C_PROBE0_WIDTH {8} CONFIG.C_NUM_OF_PROBES {3} CONFIG.C_ENABLE_ILA_AXI_MON {false} CONFIG.C_MONITOR_TYPE {Native}] [get_bd_cells ila_0]
+endgroup
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/led_r] [get_bd_pins ila_0/probe0]
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/led_g] [get_bd_pins ila_0/probe1]
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/led_b] [get_bd_pins ila_0/probe2]
+startgroup
+set_property -dict [list CONFIG.C_PROBE4_WIDTH {8} CONFIG.C_PROBE3_WIDTH {8} CONFIG.C_NUM_OF_PROBES {5}] [get_bd_cells ila_0]
+endgroup
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/m_axis_tdata] [get_bd_pins ila_0/probe3]
+startgroup
+set_property -dict [list CONFIG.C_PROBE5_WIDTH {8} CONFIG.C_PROBE4_WIDTH {1} CONFIG.C_NUM_OF_PROBES {6}] [get_bd_cells ila_0]
+endgroup
+connect_bd_net [get_bd_pins jstk_uart_bridge_0/m_axis_tvalid] [get_bd_pins ila_0/probe4]
+startgroup
+set_property -dict [list CONFIG.C_PROBE5_WIDTH {1} CONFIG.C_NUM_OF_PROBES {9}] [get_bd_cells ila_0]
+endgroup
+connect_bd_net [get_bd_pins axi4stream_spi_master_0/sclk_t] [get_bd_pins ila_0/probe5]
+connect_bd_net [get_bd_pins axi4stream_spi_master_0/miso_o] [get_bd_pins ila_0/probe6]
+delete_bd_objs [get_bd_nets axi4stream_spi_master_0_sclk_t]
+connect_bd_net [get_bd_pins axi4stream_spi_master_0/cs_t] [get_bd_pins ila_0/probe7]
+connect_bd_net [get_bd_pins axi4stream_spi_master_0/mosi_o] [get_bd_pins ila_0/probe8]
+save_bd_design
+startgroup
+set_property -dict [list CONFIG.C_NUM_OF_PROBES {10}] [get_bd_cells ila_0]
+endgroup
+connect_bd_net [get_bd_pins axi4stream_spi_master_0/sclk_t] [get_bd_pins ila_0/probe5]
+startgroup
+set_property -dict [list CONFIG.C_NUM_OF_PROBES {9}] [get_bd_cells ila_0]
+endgroup
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+delete_bd_objs [get_bd_nets axi4stream_spi_master_0_cs_t] [get_bd_nets axi4stream_spi_master_0_mosi_o] [get_bd_nets jstk_uart_bridge_0_m_axis_tdata] [get_bd_nets axi4stream_spi_master_0_sclk_t] [get_bd_nets axi4stream_spi_master_0_miso_o] [get_bd_nets jstk_uart_bridge_0_m_axis_tvalid] [get_bd_cells ila_0]
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+wait_on_run synth_1
+create_ip_run [get_files -of_objects [get_fileset sources_1] K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/sources_1/bd/jsk_top/jsk_top.bd]
+refresh_design
+set_property mark_debug true [get_nets [list {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[0]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[1]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[2]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[3]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[4]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[5]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[6]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[7]}]]
+set_property mark_debug true [get_nets [list jsk_top_i/axi4stream_spi_master_0_M_AXIS_TVALID]]
+set_property mark_debug true [get_nets [list {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[0]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[1]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[2]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[3]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[4]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[5]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[6]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[7]}]]
+set_property mark_debug true [get_nets [list jsk_top_i/axi4stream_spi_master_0/s_axis_tvalid]]
+set_property mark_debug true [get_nets [list {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[0]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[1]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[2]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[3]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[4]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[5]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[6]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[7]}]]
+set_property mark_debug true [get_nets [list jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TVALID]]
+set_property mark_debug true [get_nets [list jsk_top_i/jstk_uart_bridge_0_m_axis_TREADY]]
+set_property mark_debug true [get_nets [list {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[4]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[5]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[7]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[0]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[1]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[2]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[3]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[6]}]]
+set_property mark_debug true [get_nets [list jsk_top_i/jstk_uart_bridge_0_m_axis_TVALID]]
+set_property mark_debug true [get_nets [list jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TREADY]]
+set_property mark_debug true [get_nets [list {jsk_top_i/jstk_uart_bridge_0_led_b[0]} {jsk_top_i/jstk_uart_bridge_0_led_b[2]} {jsk_top_i/jstk_uart_bridge_0_led_b[1]} {jsk_top_i/jstk_uart_bridge_0_led_b[3]} {jsk_top_i/jstk_uart_bridge_0_led_b[4]} {jsk_top_i/jstk_uart_bridge_0_led_b[5]} {jsk_top_i/jstk_uart_bridge_0_led_b[6]} {jsk_top_i/jstk_uart_bridge_0_led_b[7]}]]
+set_property mark_debug true [get_nets [list {jsk_top_i/jstk_uart_bridge_0_led_g[1]} {jsk_top_i/jstk_uart_bridge_0_led_g[4]} {jsk_top_i/jstk_uart_bridge_0_led_g[7]} {jsk_top_i/jstk_uart_bridge_0_led_g[0]} {jsk_top_i/jstk_uart_bridge_0_led_g[2]} {jsk_top_i/jstk_uart_bridge_0_led_g[3]} {jsk_top_i/jstk_uart_bridge_0_led_g[5]} {jsk_top_i/jstk_uart_bridge_0_led_g[6]}]]
+set_property mark_debug true [get_nets [list {jsk_top_i/jstk_uart_bridge_0_led_r[1]} {jsk_top_i/jstk_uart_bridge_0_led_r[2]} {jsk_top_i/jstk_uart_bridge_0_led_r[5]} {jsk_top_i/jstk_uart_bridge_0_led_r[6]} {jsk_top_i/jstk_uart_bridge_0_led_r[7]} {jsk_top_i/jstk_uart_bridge_0_led_r[0]} {jsk_top_i/jstk_uart_bridge_0_led_r[3]} {jsk_top_i/jstk_uart_bridge_0_led_r[4]}]]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+connect_debug_port u_ila_0/clk [get_nets [list jsk_top_i/clk_wiz_0/inst/clk_out1 ]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[0]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[1]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[2]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[3]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[4]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[5]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[6]} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[0]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[1]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[2]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[3]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[4]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[5]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[6]} {jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TDATA[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[0]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[1]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[2]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[3]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[4]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[5]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[6]} {jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {jsk_top_i/jstk_uart_bridge_0_led_r[0]} {jsk_top_i/jstk_uart_bridge_0_led_r[1]} {jsk_top_i/jstk_uart_bridge_0_led_r[2]} {jsk_top_i/jstk_uart_bridge_0_led_r[3]} {jsk_top_i/jstk_uart_bridge_0_led_r[4]} {jsk_top_i/jstk_uart_bridge_0_led_r[5]} {jsk_top_i/jstk_uart_bridge_0_led_r[6]} {jsk_top_i/jstk_uart_bridge_0_led_r[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {jsk_top_i/jstk_uart_bridge_0_led_b[0]} {jsk_top_i/jstk_uart_bridge_0_led_b[1]} {jsk_top_i/jstk_uart_bridge_0_led_b[2]} {jsk_top_i/jstk_uart_bridge_0_led_b[3]} {jsk_top_i/jstk_uart_bridge_0_led_b[4]} {jsk_top_i/jstk_uart_bridge_0_led_b[5]} {jsk_top_i/jstk_uart_bridge_0_led_b[6]} {jsk_top_i/jstk_uart_bridge_0_led_b[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {jsk_top_i/jstk_uart_bridge_0_led_g[0]} {jsk_top_i/jstk_uart_bridge_0_led_g[1]} {jsk_top_i/jstk_uart_bridge_0_led_g[2]} {jsk_top_i/jstk_uart_bridge_0_led_g[3]} {jsk_top_i/jstk_uart_bridge_0_led_g[4]} {jsk_top_i/jstk_uart_bridge_0_led_g[5]} {jsk_top_i/jstk_uart_bridge_0_led_g[6]} {jsk_top_i/jstk_uart_bridge_0_led_g[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[0]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[1]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[2]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[3]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[4]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[5]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[6]} {jsk_top_i/axi4stream_spi_master_0/s_axis_tdata[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list jsk_top_i/axi4stream_spi_master_0_M_AXIS_TVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe9]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list jsk_top_i/jstk_uart_bridge_0_m_axis_TREADY ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe10]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list jsk_top_i/jstk_uart_bridge_0_m_axis_TVALID ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe11]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list jsk_top_i/axi4stream_spi_master_0/s_axis_tvalid ]]
+save_constraints
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+close_hw_manager
+close_design
+update_module_reference jsk_top_jstk_uart_bridge_0_0
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+set_property mark_debug false [get_nets [list jsk_top_i/AXI4Stream_UART_0_M00_AXIS_RX_TREADY]]
+save_constraints
+launch_runs impl_1 -to_step write_bitstream -jobs 10
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {jsk_top_i/jstk_uart_bridge_0_led_b} {jsk_top_i/jstk_uart_bridge_0_led_g} {jsk_top_i/jstk_uart_bridge_0_led_r} {jsk_top_i/jstk_uart_bridge_0_m_axis_TDATA} {jsk_top_i/jstk_uart_bridge_0_m_axis_TREADY} {jsk_top_i/jstk_uart_bridge_0_m_axis_TVALID} }
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes jsk_top_i/jstk_uart_bridge_0_m_axis_TREADY -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes jsk_top_i/jstk_uart_bridge_0_m_axis_TREADY -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes jsk_top_i/jstk_uart_bridge_0_m_axis_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes jsk_top_i/jstk_uart_bridge_0_m_axis_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes jsk_top_i/axi4stream_spi_master_0_M_AXIS_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes jsk_top_i/axi4stream_spi_master_0_M_AXIS_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq8'hXX [get_hw_probes jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE neq8'h00 [get_hw_probes jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq8'hXX [get_hw_probes jsk_top_i/axi4stream_spi_master_0_M_AXIS_TDATA -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes jsk_top_i/axi4stream_spi_master_0/s_axis_tvalid -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes jsk_top_i/axi4stream_spi_master_0/s_axis_tvalid -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes jsk_top_i/axi4stream_spi_master_0_M_AXIS_TVALID -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}] -trigger_now
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]

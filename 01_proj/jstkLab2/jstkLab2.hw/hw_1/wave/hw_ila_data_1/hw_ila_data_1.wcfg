@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="65fs"></ZoomStartTime>
+      <ZoomEndTime time="1090fs"></ZoomEndTime>
+      <Cursor1Time time="0fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="478"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_curr_std" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_curr_std[3:0]</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_curr_std[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_rcv_byte_cnt" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_rcv_byte_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_rcv_byte_cnt[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_rcv_done" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_rcv_done</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_rcv_done</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_rgb_set_clc" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_rgb_set_clc</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_rgb_set_clc</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_rgb_set_req" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_rgb_set_req</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_rgb_set_req</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_snd_byte_cnt" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_snd_byte_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_snd_byte_cnt[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_rcv_byte_cnt" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_rcv_byte_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_rcv_byte_cnt[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_s_axis_tdata" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_s_axis_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_s_axis_tdata[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="jsk_top_i/digilent_jstk2_0_dbg_s_axis_tvalid" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">jsk_top_i/digilent_jstk2_0_dbg_s_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">digilent_jstk2_0_dbg_s_axis_tvalid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+</wave_config>

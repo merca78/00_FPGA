@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="jsk_top_clk_wiz_0_0_synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/jsk_top_clk_wiz_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="jsk_top_digilent_jstk2_0_0_synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/jsk_top_digilent_jstk2_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="jsk_top_jstk_uart_bridge_0_0_synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/jsk_top_jstk_uart_bridge_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="jsk_top_AXI4Stream_UART_0_0_synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/jsk_top_AXI4Stream_UART_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="jsk_top_axi4stream_spi_master_0_0_synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/jsk_top_axi4stream_spi_master_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="jsk_top_proc_sys_reset_0_0_synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/jsk_top_proc_sys_reset_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="jsk_top_clk_wiz_0_0_synth_1"/>
+		<Parent Id="jsk_top_digilent_jstk2_0_0_synth_1"/>
+		<Parent Id="jsk_top_jstk_uart_bridge_0_0_synth_1"/>
+		<Parent Id="jsk_top_AXI4Stream_UART_0_0_synth_1"/>
+		<Parent Id="jsk_top_axi4stream_spi_master_0_0_synth_1"/>
+		<Parent Id="jsk_top_proc_sys_reset_0_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+
