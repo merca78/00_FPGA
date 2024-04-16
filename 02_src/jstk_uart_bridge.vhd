@@ -6,7 +6,7 @@ entity jstk_uart_bridge is
 	generic (
 		HEADER_CODE		: std_logic_vector(7 downto 0) := x"c0"; -- Header of the packet
 		TX_DELAY		: positive := 1_000_000;    -- Pause (in clock cycles) between two packets
-		JSTK_BITS		: integer range 1 to 7 := 7    -- Number of bits of the joystick axis to transfer to the PC 
+		JSTK_BITS		: integer range 1 to 7 := 7 -- Number of bits of the joystick axis to transfer to the PC 
 	);
 	Port ( 
 		aclk 			: in  	STD_LOGIC;
@@ -34,34 +34,39 @@ entity jstk_uart_bridge is
 end jstk_uart_bridge;
 
 architecture Behavioral of jstk_uart_bridge is
-	--== FSM 
+
+	--== CONSTANT
+	constant JSTK_BITS_D	: integer  := 10-JSTK_BITS;
+
+	--== STATE MACHINE 
 	type state_type1 is (IDLE, DATA_TRANS)		;
     signal next_state, curr_state: state_type1	;
 
 	--== SIGNALS 
+	--* counter 
 	signal 	rcv_cnt		: unsigned(3 downto 0)	;
 	signal 	snd_cnt		: unsigned(3 downto 0)	;
 	signal 	tx_cnt 		: integer				;
-
+	--* buffer
 	signal 	led_r_reg	: std_logic_vector(7 downto 0);
 	signal 	led_g_reg	: std_logic_vector(7 downto 0);
 	signal 	led_b_reg	: std_logic_vector(7 downto 0);
-
-	signal	send_flag	: std_logic;
-
 	signal 	jstk_x_reg 	: std_logic_vector(7 downto 0);
 	signal 	jstk_y_reg 	: std_logic_vector(7 downto 0);
 	signal 	button_reg 	: std_logic_vector(7 downto 0);
 
+	signal	send_flag	: std_logic;
+
+
 begin
-	--=  Assignment
+	--=========  Assignment
 	led_r 			<= led_r_reg;
 	led_g 			<= led_g_reg;
 	led_b 			<= led_b_reg;
-	s_axis_tready 	<= '1'		;
+	s_axis_tready 	<= '1'		; --- always ready to recieve data
 
-	--=  Initialization state jump.
-	--* According to control sequence
+	--=========  STATE MACHINE 
+	--* This state machine is specifically set for receiving data from PC
 	STM_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -76,6 +81,7 @@ begin
 	UART_JMP_ENG : process(curr_state, s_axis_tvalid, rcv_cnt) is
 	begin
 		case curr_state is
+			--* When the data header is received, switch to the state of receiving data.
 			when IDLE  =>
 				if (s_axis_tvalid='1') then
 					if (s_axis_tdata=HEADER_CODE) then 
@@ -87,8 +93,9 @@ begin
 					next_state <= IDLE;
 				end if;
 
+			--* Jump back to IDLE state after receiving 3 bytes of data
 			when DATA_TRANS =>	
-				if (rcv_cnt=3) then --+
+				if (rcv_cnt=3) then 
 					next_state <= IDLE;
 				else
 					next_state <= DATA_TRANS;
@@ -99,7 +106,8 @@ begin
 		end case;
 	end process UART_JMP_ENG;
 	
-	--== rcv_cnt
+	--========= Count of received bytes
+	--* rcv_cnt: Judge by s_axis_tvalid
 	CNT_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -115,7 +123,8 @@ begin
 		end if;
 	end process CNT_ENG;
 
-	--== recieve data from PC 
+	--========= RECIEVE DATA FROM PC
+	--* Judge what color data is received by rcv_cnt
 	DAT_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -141,19 +150,8 @@ begin
 		end if;
 	end process DAT_ENG;
 
-	--== send data to PC
-	-- REG_ENG : process (aclk, aresetn) is
-	-- begin
-	-- 	if rising_edge(aclk) then
-	-- 		if aresetn = '0' then
-	-- 			coord_dat <= (others => '0');
-	-- 		else
-	-- 			coord_dat <= jstk_x&jstk_y&btn_jstk&btn_trigger;
-	-- 		end if;
-	-- 	end if;
-	-- end process REG_ENG;
-	
-
+	--========= SEND DATA TO PC
+	--* tx_cnt: count the pause (in clock cycles) between two packets
 	TX_CNT_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -167,6 +165,8 @@ begin
 		end if;
 	end process TX_CNT_ENG;
 
+	--* send_flag: It is used to judge when data can be sent, '1' means that data can be sent.
+	--* jstk_x_reg, jstk_y_reg, button_reg: reorganized data
 	FLAG_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -177,8 +177,8 @@ begin
 				button_reg <= (others => '0');
 			elsif (tx_cnt = TX_DELAY-1) then 
 				send_flag <= '1';
-				jstk_x_reg <= jstk_x(9 downto 2);
-				jstk_y_reg <= jstk_y(9 downto 2);
+				jstk_x_reg <= '0' & jstk_x(9 downto JSTK_BITS_D);
+				jstk_y_reg <= '0' & jstk_y(9 downto JSTK_BITS_D);
 				button_reg <= (0=>btn_jstk,1=>btn_trigger,others => '0');
 			elsif (m_axis_tready='1' and snd_cnt=3) then
 				send_flag <= '0';
@@ -189,6 +189,7 @@ begin
 		end if;
 	end process FLAG_ENG;
 
+	--* snd_cnt: Count the bytes that have been sent, judge by s_axis_tvalid
 	SND_CNT_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -206,6 +207,7 @@ begin
 		end if;
 	end process SND_CNT_ENG;
 
+	--* Transmit data byte by byte according to the data format
 	SED_PC : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -227,4 +229,5 @@ begin
 			end if;
 		end if;
 	end process SED_PC;
+
 end architecture;

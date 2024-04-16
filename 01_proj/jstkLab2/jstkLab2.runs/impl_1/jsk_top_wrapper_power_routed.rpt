@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Sun Apr  7 01:13:11 2024
+| Date             : Tue Apr 16 19:19:46 2024
 | Host             : MercaPC running 64-bit major release  (build 9200)
 | Command          : report_power -file jsk_top_wrapper_power_routed.rpt -pb jsk_top_wrapper_power_summary_routed.pb -rpx jsk_top_wrapper_power_routed.rpx
 | Design           : jsk_top_wrapper
@@ -53,13 +53,13 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.004 |        5 |       --- |             --- |
-| Slice Logic             |     0.002 |     1344 |       --- |             --- |
-|   LUT as Logic          |     0.002 |      418 |     20800 |            2.01 |
-|   Register              |    <0.001 |      699 |     41600 |            1.68 |
+| Slice Logic             |     0.002 |     1339 |       --- |             --- |
+|   LUT as Logic          |     0.001 |      418 |     20800 |            2.01 |
+|   Register              |    <0.001 |      694 |     41600 |            1.67 |
 |   CARRY4                |    <0.001 |       60 |      8150 |            0.74 |
 |   Others                |     0.000 |       79 |       --- |             --- |
 |   LUT as Shift Register |     0.000 |        1 |      9600 |            0.01 |
-| Signals                 |     0.002 |      956 |       --- |             --- |
+| Signals                 |     0.002 |      951 |       --- |             --- |
 | Block RAM               |    <0.001 |        1 |        50 |            2.00 |
 | MMCM                    |     0.106 |        1 |         5 |           20.00 |
 | I/O                     |     0.002 |        8 |       106 |            7.55 |

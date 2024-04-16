@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Apr 16 19:22:14 2024
+# Process ID: 58120
+# Current directory: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1
+# Command line: vivado.exe -log jsk_top_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source jsk_top_wrapper.tcl -notrace
+# Log file: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1/jsk_top_wrapper.vdi
+# Journal file: K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source jsk_top_wrapper.tcl -notrace

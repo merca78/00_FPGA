@@ -38,14 +38,12 @@ end digilent_jstk2;
 
 architecture Behavioral of digilent_jstk2 is
 
-	-- Code for the SetLEDRGB command, see the JSTK2 datasheet.
 	--== CONSTANT
 	constant CMDSETLEDRGB	: std_logic_vector(7 downto 0) := x"84";
 	constant CMDGETPOSITION	: std_logic_vector(7 downto 0) := x"C0";
-	-- constant DELAY_CYCLES	: INTEGER := DELAY_US * (CLKFREQ / 1_000_000) + CLKFREQ / SPI_SCLKFREQ;
-	constant DELAY_CYCLES	: INTEGER := 500 * (CLKFREQ / 1_000_000);
+	constant DELAY_CYCLES	: INTEGER := DELAY_US * (CLKFREQ / 1_000_000) + CLKFREQ / SPI_SCLKFREQ;
 
-	--== FSM 
+	--== STATE MACHINE 
 	-- type state_type is (IDLE, GET_COORD, RD_COORD, SET_LED, WAIT_STD);
     -- signal next_state, curr_state: state_type;
 	constant	IDLE 		: std_logic_vector(1 downto 0) := B"00";
@@ -57,44 +55,38 @@ architecture Behavioral of digilent_jstk2 is
     signal next_state: std_logic_vector(1 downto 0);
 
 	--== SIGNALS 
-	signal delay_cnt 	: INTEGER; 
-	signal snd_byte_cnt	: unsigned(3 downto 0);
-	signal rcv_byte_cnt	: unsigned(3 downto 0);
-
-	signal rgb_set_req 	: STD_LOGIC := '0'; 
-	signal rgb_set_clc 	: STD_LOGIC := '0'; 
-	signal rgb_set	 	: std_logic_vector(23 downto 0); 
-	signal rgb_set_d1	: std_logic_vector(23 downto 0); 
-
-	signal rcv_done	 	: STD_LOGIC := '0'; 
-
-	signal	jstk_x_reg			: std_logic_vector(9 downto 0);
-	signal	jstk_y_reg			: std_logic_vector(9 downto 0);
-	signal	btn_jstk_reg		: std_logic;
-	signal	btn_trigger_reg		: std_logic;
+	--* counter 
+	signal 	delay_cnt 		: INTEGER; 
+	signal 	snd_byte_cnt	: unsigned(3 downto 0);
+	signal 	rcv_byte_cnt	: unsigned(3 downto 0);
+	--* buffer
+	signal	jstk_x_reg		: std_logic_vector(9 downto 0);
+	signal	jstk_y_reg		: std_logic_vector(9 downto 0);
+	signal	btn_jstk_reg	: std_logic;
+	signal	btn_trigger_reg	: std_logic;
+	--* Set Commands 
+	signal 	rgb_set_req 	: STD_LOGIC := '0'; ---write rgb register request
+	signal 	rgb_set_clc 	: STD_LOGIC := '0'; ---reset the request of setting rgb
+	signal 	rgb_set	 		: std_logic_vector(23 downto 0); 
+	signal 	rgb_set_d1		: std_logic_vector(23 downto 0); 
+	--* Get Commands 
+	signal 	rcv_done	 	: STD_LOGIC := '0'; 
 
 begin
-	-- --= dbg
-	-- dbg_curr_std		<=	curr_state			;
-	-- dbg_snd_byte_cnt	<=	snd_byte_cnt		;
-	-- dbg_rcv_byte_cnt	<=	rcv_byte_cnt		;
-	-- dbg_rgb_set_req 	<=	rgb_set_req 		;
-	-- dbg_rgb_set_clc 	<=	rgb_set_clc 		;
-	-- dbg_rcv_done	 	<=	rcv_done	 		;
-	-- dbg_s_axis_tvalid	<=  s_axis_tvalid		;
-	-- dbg_s_axis_tdata 	<=  s_axis_tdata 		;
-	--=  Assignment
-	ASS_ENG : process (led_r, led_g, led_b) is
-	begin
-		rgb_set	<=  led_r&led_g&led_b	;
-	end process ASS_ENG;
+	
+	--=========  Assignment
+	-- ASS_ENG : process (led_r, led_g, led_b) is
+	-- begin
+	-- 	rgb_set	<=  led_r&led_g&led_b	;
+	-- end process ASS_ENG;
+	jstk_x		<= 	jstk_x_reg			;	
+	jstk_y		<= 	jstk_y_reg			;	
+	btn_jstk	<= 	btn_jstk_reg		;	
+	btn_trigger	<= 	btn_trigger_reg		;
+	rgb_set		<=  led_r&led_g&led_b	;
 
-	jstk_x		<= 	jstk_x_reg		;	
-	jstk_y		<= 	jstk_y_reg		;	
-	btn_jstk	<= 	btn_jstk_reg	;	
-	btn_trigger	<= 	btn_trigger_reg	;
-
-	--=  RGB register modify request
+	--=========  RGB register modify request
+	--* if rgb data change, rgb set request(rgb_set_req) set '1'
 	REQ1_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -112,8 +104,7 @@ begin
 		end if;
 	end process REQ1_ENG;
 
-	--=  Initialization state jump.
-	--* According to control sequence
+	--=========  Initialization state jump
 	STM_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -128,6 +119,8 @@ begin
 	JUMP_ENG : process(curr_state, rgb_set_req, snd_byte_cnt, rcv_done, delay_cnt) is
 	begin
 		case curr_state is
+			--* if rgb data change, state jump to set led command
+			--* else jump to get position state
 			when IDLE  =>
 				if (rgb_set_req='1') then
 					next_state <= SET_LED;
@@ -135,6 +128,7 @@ begin
 					next_state <= GET_COORD;
 				end if;
 
+			--* After the command SET LED RGB is sent, it transitions to the waiting state
 			when SET_LED =>	
 				if (snd_byte_cnt=5) then 
 					next_state <= WAIT_STD;
@@ -142,20 +136,16 @@ begin
 					next_state <= SET_LED;
 				end if;
 
+			--* After the command GET POSITION is sent, it transitions to the waiting state
 			when GET_COORD =>	
 				if (snd_byte_cnt=5) then 
-					next_state <= WAIT_STD; ---+++++!
+					next_state <= WAIT_STD; 
 				else
 					next_state <= GET_COORD;
 				end if;
-			
-			-- when RD_COORD =>	
-			-- 	if (rcv_done='1') then 
-			-- 		next_state <= WAIT_STD;
-			-- 	else
-			-- 		next_state <= RD_COORD;
-			-- 	end if;
 				
+			--* SPI Timing Requirements
+			--* at least 25 μS is required before users may bring the Chip Select line low again to initiate another communication session
 			when WAIT_STD =>	
 				if  (delay_cnt=DELAY_CYCLES-1) then 
 					next_state <= IDLE;
@@ -168,7 +158,13 @@ begin
 		end case;
 	end process JUMP_ENG;
 
-	--= SEND COMMOND
+	--========= SEND COMMOND TO JSTK
+	--* To both set and get state in state machine, we need to send commands to jstk. We should handle the following parameter:
+	--* snd_byte_cnt	: 	increase every time when the data is prepared and m_axi is ready, reset in IDLE stage
+	--* rgb_set_clc		: 	to reset the rgb set request
+	--* delay_cnt		: 	when enter the waiting state, start counting
+	--* m_axis_tdata	:	determine what command to send in the IDLE state,, With the standard 5 byte protocol
+	--* m_axis_tvalid	:	sync with the status of m_axis_tdata
 	FSM_DATA_ENG : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
@@ -177,7 +173,7 @@ begin
 				m_axis_tdata  	<= (others => '0');
 				m_axis_tvalid	<= '0';
 				rgb_set_clc  	<= '0';
-				delay_cnt  		<= 0;
+				delay_cnt  		<=  0 ;
 			else
 				case curr_state is
 				when IDLE  =>
@@ -195,7 +191,6 @@ begin
 
 				when SET_LED =>	
 					rgb_set_clc  	<= '0';
-					-- if  (m_axis_tready=1 and snd_byte_cnt=4) then
 					if  (snd_byte_cnt=5) then
 						snd_byte_cnt  <= (others => '0');
 						m_axis_tdata  <= (others => '0');
@@ -238,17 +233,21 @@ begin
 		end if;
 	end process FSM_DATA_ENG;
 
-	--= READ DATA
+	--========= READ FROM JSTK
+	--* Only in GET_COORD state do we need to read information from SPI.
+	--* jstk_x_reg, jstk_y_reg, btn_jstk_reg, btn_trigger_reg: These are buffer registers of received data, It is worth noting that the xy coordinates are 10bits data, so the data passed to the axis needs to be reorganized.
+	--* rcv_byte_cnt: Judge by s_axis_tvalid
+	--* rcv_done	: When 5 bytes datas are received
 	RECV_DATA : process (aclk, aresetn) is
 	begin
 		if rising_edge(aclk) then
 			if aresetn = '0' then
 				jstk_x_reg		<= (others => '0')	;
 				jstk_y_reg		<= (others => '0')	;	
-				btn_jstk_reg	<= '0'	;			
-				btn_trigger_reg	<= '0'	;
 				rcv_byte_cnt	<= (others => '0')	;	
 				rcv_done		<= '0'	;		
+				btn_jstk_reg	<= '0'	;			
+				btn_trigger_reg	<= '0'	;
 			else
 				case curr_state is
 				when GET_COORD =>
@@ -280,5 +279,15 @@ begin
 			end if;
 		end if;
 	end process RECV_DATA;
+
+	--========= dbg
+	-- dbg_curr_std			<=	curr_state			;
+	-- dbg_snd_byte_cnt		<=	snd_byte_cnt		;
+	-- dbg_rcv_byte_cnt		<=	rcv_byte_cnt		;
+	-- dbg_rgb_set_req 		<=	rgb_set_req 		;
+	-- dbg_rgb_set_clc 		<=	rgb_set_clc 		;
+	-- dbg_rcv_done	 		<=	rcv_done	 		;
+	-- dbg_s_axis_tvalid	<=  s_axis_tvalid		;
+	-- dbg_s_axis_tdata 	<=  s_axis_tdata 		;
 
 end architecture;

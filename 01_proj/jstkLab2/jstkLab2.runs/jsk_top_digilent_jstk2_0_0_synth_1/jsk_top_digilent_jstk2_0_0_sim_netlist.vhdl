@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
--- Date        : Sun Apr  7 01:06:42 2024
+-- Date        : Tue Apr 16 19:13:42 2024
 -- Host        : MercaPC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ jsk_top_digilent_jstk2_0_0_sim_netlist.vhdl
@@ -302,7 +302,7 @@ begin
     );
 \FSM_sequential_curr_state[1]_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFEFFF"
+      INIT => X"FFFF7FFF"
     )
         port map (
       I0 => \delay_cnt_reg_n_0_[10]\,
@@ -350,7 +350,7 @@ begin
     );
 \FSM_sequential_curr_state[1]_i_7\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"EFFF"
+      INIT => X"FFFE"
     )
         port map (
       I0 => \delay_cnt_reg_n_0_[13]\,
@@ -361,13 +361,13 @@ begin
     );
 \FSM_sequential_curr_state[1]_i_8\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFEF"
+      INIT => X"FFDF"
     )
         port map (
-      I0 => \delay_cnt_reg_n_0_[5]\,
-      I1 => \delay_cnt_reg_n_0_[4]\,
-      I2 => \delay_cnt_reg_n_0_[6]\,
-      I3 => \delay_cnt_reg_n_0_[7]\,
+      I0 => \delay_cnt_reg_n_0_[4]\,
+      I1 => \delay_cnt_reg_n_0_[5]\,
+      I2 => \delay_cnt_reg_n_0_[7]\,
+      I3 => \delay_cnt_reg_n_0_[6]\,
       O => \FSM_sequential_curr_state[1]_i_8_n_0\
     );
 \FSM_sequential_curr_state[1]_i_9\: unisim.vcomponents.LUT4

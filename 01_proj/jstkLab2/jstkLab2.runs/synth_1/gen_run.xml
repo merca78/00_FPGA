@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1712445137">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1713287596">
   <File Type="PA-TCL" Name="jsk_top_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="jsk_top_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="jsk_top_wrapper_reports.tcl"/>
@@ -11,13 +11,13 @@
   <File Type="VDS-TIMING-PB" Name="jsk_top_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../02_src/jstk_uart_bridge.vhd">
+    <File Path="$PPRDIR/../../02_src/digilent_jstk2.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../02_src/digilent_jstk2.vhd">
+    <File Path="$PPRDIR/../../02_src/jstk_uart_bridge.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -43,14 +43,13 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/new/jstik.xdc">
+    <File Path="$PPRDIR/../../03_constrs/jstik.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <Config>
-      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/jstik.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>

@@ -1,0 +1,116 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Tue Apr 16 19:19:20 2024
+| Host         : MercaPC running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file jsk_top_wrapper_control_sets_placed.rpt
+| Design       : jsk_top_wrapper
+| Device       : xc7a35t
+--------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    38 |
+|    Minimum number of control sets                        |    38 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    98 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    38 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |    10 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |     7 |
+| >= 10 to < 12      |     3 |
+| >= 12 to < 14      |     3 |
+| >= 14 to < 16      |     2 |
+| >= 16              |    10 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             198 |           46 |
+| No           | No                    | Yes                    |               5 |            2 |
+| No           | Yes                   | No                     |             187 |           73 |
+| Yes          | No                    | No                     |              18 |            3 |
+| Yes          | No                    | Yes                    |              16 |            2 |
+| Yes          | Yes                   | No                     |             270 |           79 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|            Clock Signal            |                                              Enable Signal                                              |                                                                   Set/Reset Signal                                                                  | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------------+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/s00_axis_tx_tready                                                       | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tdata[7]_i_1_n_0                                                                                             |                1 |              4 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/m00_axis_rx_tvalid                                                       | jsk_top_i/jstk_uart_bridge_0/U0/rcv_cnt[3]_i_1_n_0                                                                                                  |                2 |              4 |         2.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/cntr[3]_i_2_n_0         | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/cntr[3]_i_1_n_0                                                     |                1 |              4 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/FSM_onehot_gen_rst_ic.curr_wrst_state[4]_i_1_n_0 |                2 |              4 |         2.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/proc_sys_reset_0/U0/EXT_LPF/lpf_int                                                                                                       |                3 |              4 |         1.33 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/UART_Manager_inst/Inst_uart/rx_baud_tick__0                              |                                                                                                                                                     |                1 |              4 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/digilent_jstk2_0/U0/rcv_byte_cnt_0                                                            | jsk_top_i/digilent_jstk2_0/U0/m_axis_tvalid_i_1_n_0                                                                                                 |                1 |              4 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/FSM_onehot_gen_rst_ic.curr_wrst_state[4]_i_1_n_0 |                2 |              4 |         2.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/digilent_jstk2_0/U0/jstk_y_reg[7]_i_1_n_0                                                     | jsk_top_i/digilent_jstk2_0/U0/m_axis_tvalid_i_1_n_0                                                                                                 |                1 |              5 |         5.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/digilent_jstk2_0/U0/jstk_x_reg[7]_i_1_n_0                                                     | jsk_top_i/digilent_jstk2_0/U0/m_axis_tvalid_i_1_n_0                                                                                                 |                2 |              5 |         2.50 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/proc_sys_reset_0/U0/SEQ/seq_cnt_en                                                            | jsk_top_i/proc_sys_reset_0/U0/SEQ/SEQ_COUNTER/clear                                                                                                 |                2 |              6 |         3.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/miso_data_o[7]_i_1_n_0  |                                                                                                                                                     |                1 |              7 |         7.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/write_reg[7]_i_1_n_0    |                                                                                                                                                     |                1 |              7 |         7.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tdata[7]_i_1_n_0                                                                                             |                2 |              8 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/UART_Manager_inst/Inst_uart/E[0]                                         | jsk_top_i/proc_sys_reset_0/U0/peripheral_reset[0]                                                                                                   |                1 |              8 |         8.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/UART_Manager_inst/data_stream_in[7]_i_1_n_0                              | jsk_top_i/proc_sys_reset_0/U0/peripheral_reset[0]                                                                                                   |                1 |              8 |         8.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/read_reg[7]_i_2_n_0     | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/read_reg[7]_i_1_n_0                                                 |                4 |              8 |         2.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/jstk_uart_bridge_0/U0/led_b_reg                                                               | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tvalid_i_1_n_0                                                                                               |                1 |              8 |         8.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/jstk_uart_bridge_0/U0/led_r_reg                                                               | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tvalid_i_1_n_0                                                                                               |                1 |              8 |         8.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/jstk_uart_bridge_0/U0/led_g_reg                                                               | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tvalid_i_1_n_0                                                                                               |                2 |              8 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/UART_Manager_inst/Inst_uart/uart_tx_count[2]_i_1_n_0                     | jsk_top_i/proc_sys_reset_0/U0/peripheral_reset[0]                                                                                                   |                3 |             10 |         3.33 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/axi4stream_spi_master_0/U0/inst_axis_lw_spi_master/inst_lw_spi_master/edgecntr[9]_i_1_n_0                                                 |                6 |             11 |         1.83 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/UART_Manager_inst/Inst_uart/uart_rx_data_vec                             | jsk_top_i/proc_sys_reset_0/U0/peripheral_reset[0]                                                                                                   |                3 |             11 |         3.67 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wrst_busy                                        |                4 |             12 |         3.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wrst_busy                                        |                6 |             12 |         2.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/digilent_jstk2_0/U0/m_axis_tdata[7]_i_1_n_0                                                   | jsk_top_i/digilent_jstk2_0/U0/m_axis_tvalid_i_1_n_0                                                                                                 |                5 |             12 |         2.40 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg_0                  |                6 |             15 |         2.50 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg_0                  |                5 |             15 |         3.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/jstk_uart_bridge_0/U0/button_reg[1]_i_1_n_0                                                   | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tvalid_i_1_n_0                                                                                               |                4 |             16 |         4.00 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/rdp_inst/E[0]          | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg_0                  |                6 |             23 |         3.83 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/rdp_inst/E[0]          | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg_0                  |                6 |             23 |         3.83 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/digilent_jstk2_0/U0/delay_cnt                                                                 | jsk_top_i/digilent_jstk2_0/U0/m_axis_tvalid_i_1_n_0                                                                                                 |               13 |             32 |         2.46 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/digilent_jstk2_0/U0/m_axis_tvalid_i_1_n_0                                                                                                 |               10 |             34 |         3.40 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/E[0] | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_RX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wrst_busy                                        |                9 |             34 |         3.78 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/jstk_uart_bridge_0/U0/m_axis_tvalid_i_1_n_0                                                                                               |               14 |             35 |         2.50 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         | jsk_top_i/proc_sys_reset_0/U0/peripheral_reset[0]                                                                                                   |               15 |             38 |         2.53 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/E[0] | jsk_top_i/AXI4Stream_UART_0/U0/FIFO_DATA_TX/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wrst_busy                                        |               12 |             45 |         3.75 |
+|  jsk_top_i/clk_wiz_0/inst/clk_out1 |                                                                                                         |                                                                                                                                                     |               47 |            199 |         4.23 |
++------------------------------------+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+
+

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Apr  7 01:06:15 2024" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Apr 16 19:13:12 2024" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:basys3:part0:1.1" DEVICE="7a35t" NAME="jsk_top" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -13,16 +13,6 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_0" PORT="reset"/>
         <CONNECTION INSTANCE="proc_sys_reset_0" PORT="ext_reset_in"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="usb_uart_txd" SIGIS="undef" SIGNAME="AXI4Stream_UART_0_UART_TX">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="UART_TX"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="usb_uart_rxd" SIGIS="undef" SIGNAME="AXI4Stream_UART_0_UART_RX">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="UART_RX"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="SPI_M_sck_t" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_sclk_t">
@@ -83,6 +73,16 @@
     <PORT DIR="I" NAME="SPI_M_io0_i" SIGIS="undef" SIGNAME="axi4stream_spi_master_0_mosi_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="mosi_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="usb_uart_txd" SIGIS="undef" SIGNAME="AXI4Stream_UART_0_UART_TX">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="UART_TX"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="usb_uart_rxd" SIGIS="undef" SIGNAME="AXI4Stream_UART_0_UART_RX">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="UART_RX"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1008,8 +1008,8 @@
             <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="m00_axis_rx_aclk"/>
             <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="s00_axis_tx_aclk"/>
             <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="aclk"/>
-            <CONNECTION INSTANCE="jstk_uart_bridge_0" PORT="aclk"/>
             <CONNECTION INSTANCE="digilent_jstk2_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="jstk_uart_bridge_0" PORT="aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_0_locked">
@@ -1322,8 +1322,8 @@
             <CONNECTION INSTANCE="axi4stream_spi_master_0" PORT="aresetn"/>
             <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="s00_axis_tx_aresetn"/>
             <CONNECTION INSTANCE="AXI4Stream_UART_0" PORT="m00_axis_rx_aresetn"/>
-            <CONNECTION INSTANCE="jstk_uart_bridge_0" PORT="aresetn"/>
             <CONNECTION INSTANCE="digilent_jstk2_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="jstk_uart_bridge_0" PORT="aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

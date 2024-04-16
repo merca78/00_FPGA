@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Sun Apr  7 01:06:42 2024
+// Date        : Tue Apr 16 19:13:42 2024
 // Host        : MercaPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ jsk_top_digilent_jstk2_0_0_sim_netlist.v
@@ -269,7 +269,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_digilent_jstk2
         .I3(curr_state[1]),
         .O(\FSM_sequential_curr_state[1]_i_2_n_0 ));
   LUT5 #(
-    .INIT(32'hFFFFEFFF)) 
+    .INIT(32'hFFFF7FFF)) 
     \FSM_sequential_curr_state[1]_i_3 
        (.I0(\delay_cnt_reg_n_0_[10] ),
         .I1(\delay_cnt_reg_n_0_[11] ),
@@ -305,7 +305,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_digilent_jstk2
         .I4(\FSM_sequential_curr_state[1]_i_10_n_0 ),
         .O(\FSM_sequential_curr_state[1]_i_6_n_0 ));
   LUT4 #(
-    .INIT(16'hEFFF)) 
+    .INIT(16'hFFFE)) 
     \FSM_sequential_curr_state[1]_i_7 
        (.I0(\delay_cnt_reg_n_0_[13] ),
         .I1(\delay_cnt_reg_n_0_[12] ),
@@ -313,12 +313,12 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_digilent_jstk2
         .I3(\delay_cnt_reg_n_0_[14] ),
         .O(\FSM_sequential_curr_state[1]_i_7_n_0 ));
   LUT4 #(
-    .INIT(16'hFFEF)) 
+    .INIT(16'hFFDF)) 
     \FSM_sequential_curr_state[1]_i_8 
-       (.I0(\delay_cnt_reg_n_0_[5] ),
-        .I1(\delay_cnt_reg_n_0_[4] ),
-        .I2(\delay_cnt_reg_n_0_[6] ),
-        .I3(\delay_cnt_reg_n_0_[7] ),
+       (.I0(\delay_cnt_reg_n_0_[4] ),
+        .I1(\delay_cnt_reg_n_0_[5] ),
+        .I2(\delay_cnt_reg_n_0_[7] ),
+        .I3(\delay_cnt_reg_n_0_[6] ),
         .O(\FSM_sequential_curr_state[1]_i_8_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 

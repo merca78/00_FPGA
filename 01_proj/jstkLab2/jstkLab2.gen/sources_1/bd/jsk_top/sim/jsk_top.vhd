@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Sun Apr  7 01:06:15 2024
+--Date        : Tue Apr 16 19:13:12 2024
 --Host        : MercaPC running 64-bit major release  (build 9200)
 --Command     : generate_target jsk_top.bd
 --Design      : jsk_top
@@ -100,6 +100,24 @@ architecture STRUCTURE of jsk_top is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component jsk_top_proc_sys_reset_0_0;
+  component jsk_top_digilent_jstk2_0_0 is
+  port (
+    aclk : in STD_LOGIC;
+    aresetn : in STD_LOGIC;
+    m_axis_tvalid : out STD_LOGIC;
+    m_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m_axis_tready : in STD_LOGIC;
+    s_axis_tvalid : in STD_LOGIC;
+    s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    jstk_x : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    jstk_y : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    btn_jstk : out STD_LOGIC;
+    btn_trigger : out STD_LOGIC;
+    led_r : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    led_g : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    led_b : in STD_LOGIC_VECTOR ( 7 downto 0 )
+  );
+  end component jsk_top_digilent_jstk2_0_0;
   component jsk_top_jstk_uart_bridge_0_0 is
   port (
     aclk : in STD_LOGIC;
@@ -119,24 +137,6 @@ architecture STRUCTURE of jsk_top is
     led_b : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component jsk_top_jstk_uart_bridge_0_0;
-  component jsk_top_digilent_jstk2_0_0 is
-  port (
-    aclk : in STD_LOGIC;
-    aresetn : in STD_LOGIC;
-    m_axis_tvalid : out STD_LOGIC;
-    m_axis_tdata : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    m_axis_tready : in STD_LOGIC;
-    s_axis_tvalid : in STD_LOGIC;
-    s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    jstk_x : out STD_LOGIC_VECTOR ( 9 downto 0 );
-    jstk_y : out STD_LOGIC_VECTOR ( 9 downto 0 );
-    btn_jstk : out STD_LOGIC;
-    btn_trigger : out STD_LOGIC;
-    led_r : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    led_g : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    led_b : in STD_LOGIC_VECTOR ( 7 downto 0 )
-  );
-  end component jsk_top_digilent_jstk2_0_0;
   signal AXI4Stream_UART_0_M00_AXIS_RX_TDATA : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal AXI4Stream_UART_0_M00_AXIS_RX_TREADY : STD_LOGIC;
   signal AXI4Stream_UART_0_M00_AXIS_RX_TVALID : STD_LOGIC;

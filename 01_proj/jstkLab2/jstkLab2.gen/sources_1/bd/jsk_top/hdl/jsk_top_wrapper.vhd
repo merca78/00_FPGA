@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Sun Apr  7 01:06:15 2024
+--Date        : Tue Apr 16 19:13:12 2024
 --Host        : MercaPC running 64-bit major release  (build 9200)
 --Command     : generate_target jsk_top_wrapper.bd
 --Design      : jsk_top_wrapper
@@ -29,8 +29,6 @@ architecture STRUCTURE of jsk_top_wrapper is
   port (
     sys_clock : in STD_LOGIC;
     reset : in STD_LOGIC;
-    usb_uart_txd : out STD_LOGIC;
-    usb_uart_rxd : in STD_LOGIC;
     SPI_M_sck_t : out STD_LOGIC;
     SPI_M_io1_o : out STD_LOGIC;
     SPI_M_ss_t : out STD_LOGIC;
@@ -42,7 +40,9 @@ architecture STRUCTURE of jsk_top_wrapper is
     SPI_M_sck_o : out STD_LOGIC;
     SPI_M_ss_i : in STD_LOGIC;
     SPI_M_io1_i : in STD_LOGIC;
-    SPI_M_io0_i : in STD_LOGIC
+    SPI_M_io0_i : in STD_LOGIC;
+    usb_uart_txd : out STD_LOGIC;
+    usb_uart_rxd : in STD_LOGIC
   );
   end component jsk_top;
   component IOBUF is

@@ -1,0 +1,43 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.707692",
+   "Default View_TopLeft":"-120,0",
+   "ExpandedHierarchyInLayout":"",
+   "PinnedBlocks":"",
+   "PinnedPorts":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port usb_uart -pg 1 -lvl 5 -x 1290 -y 190 -defaultsOSRD
+preplace port SPI_M -pg 1 -lvl 5 -x 1290 -y 410 -defaultsOSRD
+preplace port sys_clock -pg 1 -lvl 0 -x -10 -y 590 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x -10 -y 510 -defaultsOSRD
+preplace inst axi4stream_spi_master_0 -pg 1 -lvl 4 -x 1110 -y 420 -defaultsOSRD
+preplace inst AXI4Stream_UART_0 -pg 1 -lvl 4 -x 1110 -y 180 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 580 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 390 -y 550 -defaultsOSRD
+preplace inst digilent_jstk2_0 -pg 1 -lvl 3 -x 740 -y 440 -defaultsOSRD
+preplace inst jstk_uart_bridge_0 -pg 1 -lvl 3 -x 740 -y 150 -defaultsOSRD
+preplace netloc sys_clock_1 1 0 1 NJ 590
+preplace netloc reset_1 1 0 2 10J 510 200
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 2 570 570 950
+preplace netloc clk_wiz_0_clk_out1 1 1 3 210 410 560 30 940
+preplace netloc clk_wiz_0_locked 1 1 1 N 590
+preplace netloc proc_sys_reset_0_peripheral_reset 1 2 2 560 560 930J
+preplace netloc jstk_uart_bridge_0_led_r 1 2 2 610 550 920
+preplace netloc jstk_uart_bridge_0_led_g 1 2 2 600 320 890
+preplace netloc jstk_uart_bridge_0_led_b 1 2 2 590 310 880
+preplace netloc digilent_jstk2_0_jstk_x 1 2 2 580 290 870
+preplace netloc digilent_jstk2_0_jstk_y 1 2 2 590 300 860
+preplace netloc digilent_jstk2_0_btn_jstk 1 2 2 600 270 910
+preplace netloc digilent_jstk2_0_btn_trigger 1 2 2 610 280 900
+preplace netloc AXI4Stream_UART_0_M00_AXIS_RX 1 2 3 610 20 NJ 20 1270
+preplace netloc axi4stream_spi_master_0_SPI_M 1 4 1 N 410
+preplace netloc digilent_jstk2_0_m_axis 1 3 1 N 400
+preplace netloc axi4stream_spi_master_0_M_AXIS 1 2 3 610 330 NJ 330 1270
+preplace netloc jstk_uart_bridge_0_m_axis 1 3 1 N 120
+preplace netloc AXI4Stream_UART_0_UART 1 4 1 N 190
+levelinfo -pg 1 -10 110 390 740 1110 1290
+pagesize -pg 1 -db -bbox -sgen -130 0 1400 650
+"
+}
+0

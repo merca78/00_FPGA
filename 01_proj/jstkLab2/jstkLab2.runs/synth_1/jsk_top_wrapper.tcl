@@ -70,11 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param general.maxThreads 30
-set_param chipscope.maxJobs 5
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -114,8 +109,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc
-set_property used_in_implementation false [get_files K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.srcs/constrs_1/new/jstik.xdc]
+read_xdc K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/03_constrs/jstik.xdc
+set_property used_in_implementation false [get_files K:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/03_constrs/jstik.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

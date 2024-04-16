@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Sun Apr  7 01:04:25 2024
+// Date        : Tue Apr 16 19:13:41 2024
 // Host        : MercaPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ jsk_top_jstk_uart_bridge_0_0_sim_netlist.v
@@ -68,8 +68,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
        (.D({btn_trigger,btn_jstk}),
         .aclk(aclk),
         .aresetn(aresetn),
-        .jstk_x(jstk_x[9:2]),
-        .jstk_y(jstk_y[9:2]),
+        .jstk_x(jstk_x[9:3]),
+        .jstk_y(jstk_y[9:3]),
         .led_b(led_b),
         .led_g(led_g),
         .led_r(led_r),
@@ -104,8 +104,8 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
   input aresetn;
   input aclk;
   input [1:0]D;
-  input [7:0]jstk_y;
-  input [7:0]jstk_x;
+  input [6:0]jstk_y;
+  input [6:0]jstk_x;
   input [7:0]s_axis_tdata;
   input m_axis_tready;
   input s_axis_tvalid;
@@ -120,10 +120,10 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
   wire curr_state_i_2_n_0;
   wire curr_state_i_3_n_0;
   wire [31:1]data0;
-  wire [7:0]jstk_x;
-  wire [7:0]jstk_x_reg;
-  wire [7:0]jstk_y;
-  wire [7:0]jstk_y_reg;
+  wire [6:0]jstk_x;
+  wire [6:0]jstk_x_reg;
+  wire [6:0]jstk_y;
+  wire [6:0]jstk_y_reg;
   wire [7:0]led_b;
   wire led_b_reg;
   wire [7:0]led_g;
@@ -295,12 +295,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
         .D(jstk_x[6]),
         .Q(jstk_x_reg[6]),
         .R(m_axis_tvalid_i_1_n_0));
-  FDRE \jstk_x_reg_reg[7] 
-       (.C(aclk),
-        .CE(\button_reg[1]_i_1_n_0 ),
-        .D(jstk_x[7]),
-        .Q(jstk_x_reg[7]),
-        .R(m_axis_tvalid_i_1_n_0));
   FDRE \jstk_y_reg_reg[0] 
        (.C(aclk),
         .CE(\button_reg[1]_i_1_n_0 ),
@@ -342,12 +336,6 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
         .CE(\button_reg[1]_i_1_n_0 ),
         .D(jstk_y[6]),
         .Q(jstk_y_reg[6]),
-        .R(m_axis_tvalid_i_1_n_0));
-  FDRE \jstk_y_reg_reg[7] 
-       (.C(aclk),
-        .CE(\button_reg[1]_i_1_n_0 ),
-        .D(jstk_y[7]),
-        .Q(jstk_y_reg[7]),
         .R(m_axis_tvalid_i_1_n_0));
   LUT6 #(
     .INIT(64'h0000000000000080)) 
@@ -543,6 +531,7 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
         .I4(\m_axis_tdata[1]_i_2_n_0 ),
         .I5(jstk_x_reg[1]),
         .O(\m_axis_tdata[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \m_axis_tdata[1]_i_2 
@@ -550,44 +539,44 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
         .I1(snd_cnt_reg[3]),
         .O(\m_axis_tdata[1]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000C000000A0)) 
+    .INIT(64'h0000000000000CA0)) 
     \m_axis_tdata[2]_i_1 
        (.I0(jstk_y_reg[2]),
         .I1(jstk_x_reg[2]),
         .I2(snd_cnt_reg[1]),
-        .I3(snd_cnt_reg[2]),
+        .I3(snd_cnt_reg[0]),
         .I4(snd_cnt_reg[3]),
-        .I5(snd_cnt_reg[0]),
+        .I5(snd_cnt_reg[2]),
         .O(\m_axis_tdata[2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000C000000A0)) 
+    .INIT(64'h0000000000000CA0)) 
     \m_axis_tdata[3]_i_1 
        (.I0(jstk_y_reg[3]),
         .I1(jstk_x_reg[3]),
         .I2(snd_cnt_reg[1]),
-        .I3(snd_cnt_reg[2]),
+        .I3(snd_cnt_reg[0]),
         .I4(snd_cnt_reg[3]),
-        .I5(snd_cnt_reg[0]),
+        .I5(snd_cnt_reg[2]),
         .O(\m_axis_tdata[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000C000000A0)) 
+    .INIT(64'h0000000000000CA0)) 
     \m_axis_tdata[4]_i_1 
        (.I0(jstk_y_reg[4]),
         .I1(jstk_x_reg[4]),
         .I2(snd_cnt_reg[1]),
-        .I3(snd_cnt_reg[2]),
+        .I3(snd_cnt_reg[0]),
         .I4(snd_cnt_reg[3]),
-        .I5(snd_cnt_reg[0]),
+        .I5(snd_cnt_reg[2]),
         .O(\m_axis_tdata[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000C000000A0)) 
+    .INIT(64'h0000000000000CA0)) 
     \m_axis_tdata[5]_i_1 
        (.I0(jstk_y_reg[5]),
         .I1(jstk_x_reg[5]),
         .I2(snd_cnt_reg[1]),
-        .I3(snd_cnt_reg[2]),
+        .I3(snd_cnt_reg[0]),
         .I4(snd_cnt_reg[3]),
-        .I5(snd_cnt_reg[0]),
+        .I5(snd_cnt_reg[2]),
         .O(\m_axis_tdata[5]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00000044000000F5)) 
@@ -605,15 +594,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
        (.I0(aresetn),
         .I1(send_flag),
         .O(\m_axis_tdata[7]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h00000044000000F5)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
     \m_axis_tdata[7]_i_2 
-       (.I0(snd_cnt_reg[1]),
-        .I1(jstk_x_reg[7]),
-        .I2(jstk_y_reg[7]),
-        .I3(snd_cnt_reg[3]),
-        .I4(snd_cnt_reg[2]),
-        .I5(snd_cnt_reg[0]),
+       (.I0(snd_cnt_reg[0]),
+        .I1(snd_cnt_reg[2]),
+        .I2(snd_cnt_reg[3]),
+        .I3(snd_cnt_reg[1]),
         .O(\m_axis_tdata[7]_i_2_n_0 ));
   FDRE \m_axis_tdata_reg[0] 
        (.C(aclk),
@@ -674,13 +662,13 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
         .D(send_flag),
         .Q(m_axis_tvalid),
         .R(m_axis_tvalid_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \rcv_cnt[0]_i_1 
        (.I0(rcv_cnt_reg[0]),
         .O(plusOp__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \rcv_cnt[1]_i_1 
@@ -765,14 +753,14 @@ module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_jstk_uart_bridge
     \snd_cnt[0]_i_1 
        (.I0(snd_cnt_reg[0]),
         .O(\snd_cnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \snd_cnt[1]_i_1 
-       (.I0(snd_cnt_reg[0]),
-        .I1(snd_cnt_reg[1]),
+       (.I0(snd_cnt_reg[1]),
+        .I1(snd_cnt_reg[0]),
         .O(plusOp[1]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \snd_cnt[2]_i_1 

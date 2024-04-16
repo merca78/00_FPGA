@@ -1,7 +1,7 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
--- Date        : Sun Apr  7 01:04:25 2024
+-- Date        : Tue Apr 16 19:13:42 2024
 -- Host        : MercaPC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               k:/Z01_ArchiveProj/00_Project/03_DESD/07_LAB2/01_proj/jstkLab2/jstkLab2.gen/sources_1/bd/jsk_top/ip/jsk_top_jstk_uart_bridge_0_0/jsk_top_jstk_uart_bridge_0_0_sim_netlist.vhdl
@@ -24,8 +24,8 @@ entity jsk_top_jstk_uart_bridge_0_0_jstk_uart_bridge is
     aresetn : in STD_LOGIC;
     aclk : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    jstk_y : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    jstk_x : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    jstk_y : in STD_LOGIC_VECTOR ( 6 downto 0 );
+    jstk_x : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s_axis_tdata : in STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axis_tready : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
@@ -42,8 +42,8 @@ architecture STRUCTURE of jsk_top_jstk_uart_bridge_0_0_jstk_uart_bridge is
   signal curr_state_i_2_n_0 : STD_LOGIC;
   signal curr_state_i_3_n_0 : STD_LOGIC;
   signal data0 : STD_LOGIC_VECTOR ( 31 downto 1 );
-  signal jstk_x_reg : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal jstk_y_reg : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal jstk_x_reg : STD_LOGIC_VECTOR ( 6 downto 0 );
+  signal jstk_y_reg : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal led_b_reg : STD_LOGIC;
   signal led_g_reg : STD_LOGIC;
   signal led_r_reg : STD_LOGIC;
@@ -110,13 +110,15 @@ architecture STRUCTURE of jsk_top_jstk_uart_bridge_0_0_jstk_uart_bridge is
   signal \NLW_tx_cnt_reg[31]_i_6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_tx_cnt_reg[31]_i_6_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \rcv_cnt[0]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \rcv_cnt[1]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \m_axis_tdata[1]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \m_axis_tdata[7]_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \rcv_cnt[0]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \rcv_cnt[1]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \rcv_cnt[2]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \rcv_cnt[3]_i_2\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of send_flag_i_2 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \snd_cnt[1]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \snd_cnt[2]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \snd_cnt[1]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \snd_cnt[2]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \snd_cnt[3]_i_1\ : label is "soft_lutpair0";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \tx_cnt_reg[12]_i_2\ : label is 35;
@@ -257,14 +259,6 @@ curr_state_reg: unisim.vcomponents.FDRE
       Q => jstk_x_reg(6),
       R => m_axis_tvalid_i_1_n_0
     );
-\jstk_x_reg_reg[7]\: unisim.vcomponents.FDRE
-     port map (
-      C => aclk,
-      CE => \button_reg[1]_i_1_n_0\,
-      D => jstk_x(7),
-      Q => jstk_x_reg(7),
-      R => m_axis_tvalid_i_1_n_0
-    );
 \jstk_y_reg_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => aclk,
@@ -319,14 +313,6 @@ curr_state_reg: unisim.vcomponents.FDRE
       CE => \button_reg[1]_i_1_n_0\,
       D => jstk_y(6),
       Q => jstk_y_reg(6),
-      R => m_axis_tvalid_i_1_n_0
-    );
-\jstk_y_reg_reg[7]\: unisim.vcomponents.FDRE
-     port map (
-      C => aclk,
-      CE => \button_reg[1]_i_1_n_0\,
-      D => jstk_y(7),
-      Q => jstk_y_reg(7),
       R => m_axis_tvalid_i_1_n_0
     );
 \led_b_reg[7]_i_1\: unisim.vcomponents.LUT6
@@ -597,54 +583,54 @@ curr_state_reg: unisim.vcomponents.FDRE
     );
 \m_axis_tdata[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000C000000A0"
+      INIT => X"0000000000000CA0"
     )
         port map (
       I0 => jstk_y_reg(2),
       I1 => jstk_x_reg(2),
       I2 => snd_cnt_reg(1),
-      I3 => snd_cnt_reg(2),
+      I3 => snd_cnt_reg(0),
       I4 => snd_cnt_reg(3),
-      I5 => snd_cnt_reg(0),
+      I5 => snd_cnt_reg(2),
       O => \m_axis_tdata[2]_i_1_n_0\
     );
 \m_axis_tdata[3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000C000000A0"
+      INIT => X"0000000000000CA0"
     )
         port map (
       I0 => jstk_y_reg(3),
       I1 => jstk_x_reg(3),
       I2 => snd_cnt_reg(1),
-      I3 => snd_cnt_reg(2),
+      I3 => snd_cnt_reg(0),
       I4 => snd_cnt_reg(3),
-      I5 => snd_cnt_reg(0),
+      I5 => snd_cnt_reg(2),
       O => \m_axis_tdata[3]_i_1_n_0\
     );
 \m_axis_tdata[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000C000000A0"
+      INIT => X"0000000000000CA0"
     )
         port map (
       I0 => jstk_y_reg(4),
       I1 => jstk_x_reg(4),
       I2 => snd_cnt_reg(1),
-      I3 => snd_cnt_reg(2),
+      I3 => snd_cnt_reg(0),
       I4 => snd_cnt_reg(3),
-      I5 => snd_cnt_reg(0),
+      I5 => snd_cnt_reg(2),
       O => \m_axis_tdata[4]_i_1_n_0\
     );
 \m_axis_tdata[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000C000000A0"
+      INIT => X"0000000000000CA0"
     )
         port map (
       I0 => jstk_y_reg(5),
       I1 => jstk_x_reg(5),
       I2 => snd_cnt_reg(1),
-      I3 => snd_cnt_reg(2),
+      I3 => snd_cnt_reg(0),
       I4 => snd_cnt_reg(3),
-      I5 => snd_cnt_reg(0),
+      I5 => snd_cnt_reg(2),
       O => \m_axis_tdata[5]_i_1_n_0\
     );
 \m_axis_tdata[6]_i_1\: unisim.vcomponents.LUT6
@@ -669,17 +655,15 @@ curr_state_reg: unisim.vcomponents.FDRE
       I1 => send_flag,
       O => \m_axis_tdata[7]_i_1_n_0\
     );
-\m_axis_tdata[7]_i_2\: unisim.vcomponents.LUT6
+\m_axis_tdata[7]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"00000044000000F5"
+      INIT => X"0001"
     )
         port map (
-      I0 => snd_cnt_reg(1),
-      I1 => jstk_x_reg(7),
-      I2 => jstk_y_reg(7),
-      I3 => snd_cnt_reg(3),
-      I4 => snd_cnt_reg(2),
-      I5 => snd_cnt_reg(0),
+      I0 => snd_cnt_reg(0),
+      I1 => snd_cnt_reg(2),
+      I2 => snd_cnt_reg(3),
+      I3 => snd_cnt_reg(1),
       O => \m_axis_tdata[7]_i_2_n_0\
     );
 \m_axis_tdata_reg[0]\: unisim.vcomponents.FDRE
@@ -887,8 +871,8 @@ send_flag_reg: unisim.vcomponents.FDRE
       INIT => X"6"
     )
         port map (
-      I0 => snd_cnt_reg(0),
-      I1 => snd_cnt_reg(1),
+      I0 => snd_cnt_reg(1),
+      I1 => snd_cnt_reg(0),
       O => plusOp(1)
     );
 \snd_cnt[2]_i_1\: unisim.vcomponents.LUT3
@@ -1828,8 +1812,8 @@ U0: entity work.jsk_top_jstk_uart_bridge_0_0_jstk_uart_bridge
       D(0) => btn_jstk,
       aclk => aclk,
       aresetn => aresetn,
-      jstk_x(7 downto 0) => jstk_x(9 downto 2),
-      jstk_y(7 downto 0) => jstk_y(9 downto 2),
+      jstk_x(6 downto 0) => jstk_x(9 downto 3),
+      jstk_y(6 downto 0) => jstk_y(9 downto 3),
       led_b(7 downto 0) => led_b(7 downto 0),
       led_g(7 downto 0) => led_g(7 downto 0),
       led_r(7 downto 0) => led_r(7 downto 0),
